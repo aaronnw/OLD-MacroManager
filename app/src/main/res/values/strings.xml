@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MacroManager</string>
+    <string name="connect">Connect</string>
+    <string name="status">Not connected</string>
+    <string name="grid">Grid</string>
+    <string name="connected">Connected!</string>
+    <string name="disconnected">Not Connected</string>
+</resources>

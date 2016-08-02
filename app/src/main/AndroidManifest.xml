@@ -17,6 +17,10 @@
         </activity>
         <activity android:name=".GridActivity">
         </activity>
+        <activity android:name=".GridManager">
+        </activity>
+        <activity android:name=".LinearGridActivity">
+        </activity>
     </application>
 
 </manifest>

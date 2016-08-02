@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="dev.wilson.aaron.macromanager.GridManager">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grid Layout"
+        android:id="@+id/bTestOption1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="106dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Layout"
+        android:id="@+id/bTestOption2"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/bTestOption1"
+        android:layout_alignStart="@+id/bTestOption1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Grid"
+        android:id="@+id/bEditGrid"
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/bTestOption2"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

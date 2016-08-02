@@ -49,8 +49,8 @@ public class MainMenu extends AppCompatActivity {
         });
         bGrid.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent gridIntent = new Intent(MainMenu.this, GridActivity.class);
-                startActivity(gridIntent);
+                Intent gridManagerIntent = new Intent(MainMenu.this, GridManager.class);
+                startActivity(gridManagerIntent);
             }
         });
     }

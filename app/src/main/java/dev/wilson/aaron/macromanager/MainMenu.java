@@ -8,11 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.net.Socket;
+
 public class MainMenu extends AppCompatActivity {
     private static boolean status = false;
     private TextView tvStatus;
     private Button bConnect;
     private Button bGrid;
+    private String serverLocation = "localhost";
+    private int port = 1234;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +27,11 @@ public class MainMenu extends AppCompatActivity {
         bGrid = (Button) findViewById(R.id.bGrid);
         updateStatus();
         setListeners();
+
     }
 
     void updateStatus(){
+        status = checkConnection();
         if(status){
             tvStatus.setTextColor(Color.parseColor("#3fd300"));
             tvStatus.setText(R.string.connected);
@@ -38,8 +44,7 @@ public class MainMenu extends AppCompatActivity {
     void setListeners(){
         bConnect.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent connectionIntent = new Intent(MainMenu.this, ConnectionActivity.class);
-                startActivity(connectionIntent);
+                updateStatus();
             }
         });
         bGrid.setOnClickListener(new View.OnClickListener(){
@@ -49,7 +54,18 @@ public class MainMenu extends AppCompatActivity {
             }
         });
     }
-    public void setConnectionStatus(boolean newStatus){
-        status = newStatus;
+    boolean checkConnection(){
+        try {
+            Socket client = new Socket(serverLocation, port);
+            if(client.isConnected()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+        catch(Exception e) {
+            return false;
+        }
     }
 }

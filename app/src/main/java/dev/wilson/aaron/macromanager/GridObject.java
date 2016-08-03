@@ -21,9 +21,10 @@ public class GridObject{
     public void addMacro(String title, String command){
         for(int i = 0; i < rowSize; i++){
             for(int j = 0; j < columnSize; j++){
-                if(macros[i][j].getCommand() != null){
+                if(macros[i][j].getCommand() == null){
                     macros[i][j].setTitle(title);
                     macros[i][j].setCommand(command);
+                    return;
                 }
             }
         }

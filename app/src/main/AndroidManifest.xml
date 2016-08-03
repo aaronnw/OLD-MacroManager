@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="dev.wilson.aaron.macromanager">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +22,12 @@
         <activity android:name=".GridManager">
         </activity>
         <activity android:name=".LinearGridActivity">
+        </activity>
+        <activity android:name=".EditMacroActivity">
+        </activity>
+        <activity android:name=".GridEditSelector">
+        </activity>
+        <activity android:name=".GridEditor">
         </activity>
     </application>
 

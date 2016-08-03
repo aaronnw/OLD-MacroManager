@@ -10,6 +10,8 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.net.Socket;
+
 public class GridActivity extends AppCompatActivity{
     int rows = 5;
     int columns = 4;
@@ -26,7 +28,7 @@ public class GridActivity extends AppCompatActivity{
 
         gridObject = new GridObject(rows, columns);
 
-        gridObject.addMacroToPos("title", "Test command", 0 , 0);
+        gridObject.addMacro("title", "Test command");
 
         Button[][] buttons = new Button[rows][columns];
         for(int i = 0; i < rows; i ++){
@@ -70,6 +72,7 @@ public class GridActivity extends AppCompatActivity{
     void sendMacro(int i, int j){
         //For now just change the text
         //Later call the send method on the object at i, j
-        result.setText(gridObject.getMacroAtPos(i,j).getCommand());
+        String command = (gridObject.getMacroAtPos(i,j).getCommand());
+        result.setText(command);
     }
 }

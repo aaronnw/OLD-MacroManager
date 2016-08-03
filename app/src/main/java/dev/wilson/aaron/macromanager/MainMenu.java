@@ -9,14 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.net.Socket;
+import java.sql.Connection;
 
 public class MainMenu extends AppCompatActivity {
     private static boolean status = false;
     private TextView tvStatus;
     private Button bConnect;
     private Button bGrid;
-    private String serverLocation = "localhost";
-    private int port = 1234;
+    private ConnectionObject connection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +25,13 @@ public class MainMenu extends AppCompatActivity {
         tvStatus = (TextView) findViewById(R.id.tvStatus);
         bConnect = (Button) findViewById(R.id.bConnect);
         bGrid = (Button) findViewById(R.id.bGrid);
-        updateStatus();
+        connection = new ConnectionObject("localhost", 1234);
         setListeners();
 
     }
 
     void updateStatus(){
-        status = checkConnection();
+        status = connection.checkConnection();
         if(status){
             tvStatus.setTextColor(Color.parseColor("#3fd300"));
             tvStatus.setText(R.string.connected);
@@ -44,6 +44,7 @@ public class MainMenu extends AppCompatActivity {
     void setListeners(){
         bConnect.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                connection.start();
                 updateStatus();
             }
         });
@@ -53,19 +54,5 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(gridManagerIntent);
             }
         });
-    }
-    boolean checkConnection(){
-        try {
-            Socket client = new Socket(serverLocation, port);
-            if(client.isConnected()){
-                return true;
-            }else{
-                return false;
-            }
-
-        }
-        catch(Exception e) {
-            return false;
-        }
     }
 }

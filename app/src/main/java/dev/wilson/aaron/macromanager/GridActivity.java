@@ -14,6 +14,7 @@ public class GridActivity extends AppCompatActivity{
     int rows = 5;
     int columns = 4;
     TextView result;
+    GridObject gridObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -23,14 +24,15 @@ public class GridActivity extends AppCompatActivity{
         grid.setRowCount(rows +1);
         grid.setColumnCount(columns);
 
+        gridObject = new GridObject(rows, columns);
 
-
+        gridObject.addMacroToPos("title", "Test command", 0 , 0);
 
         Button[][] buttons = new Button[rows][columns];
         for(int i = 0; i < rows; i ++){
             for (int j = 0; j < columns; j++){
                 buttons[i][j] = new Button(this);
-                buttons[i][j].setText(i + ", " + j);
+                buttons[i][j].setText(gridObject.getMacroAtPos(i,j).getTitle());
                 final int row = i;
                 final int column = j;
                 buttons[i][j].setOnClickListener(new View.OnClickListener(){
@@ -41,9 +43,6 @@ public class GridActivity extends AppCompatActivity{
                 grid.addView(buttons[i][j]);
             }
         }
-        result = new TextView(this);
-        result.setText("0");
-        grid.addView(result);
         GridLayout.LayoutParams gridParams = new GridLayout.LayoutParams();
         gridParams.width = GridLayout.LayoutParams.WRAP_CONTENT;
         gridParams.height = GridLayout.LayoutParams.WRAP_CONTENT;
@@ -51,19 +50,26 @@ public class GridActivity extends AppCompatActivity{
         grid.setBackgroundColor(Color.RED);
 
         LinearLayout test = new LinearLayout(this);
+        test.setOrientation(LinearLayout.VERTICAL);
         test.setGravity(Gravity.CENTER);
         LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         linearParams.gravity = Gravity.CENTER_HORIZONTAL;
         test.setBackgroundColor(Color.BLUE);
         test.setLayoutParams(linearParams);
         test.addView(grid);
+        result = new TextView(this);
+        result.setText("0");
+        test.addView(result);
+
+
+
         setContentView(test);
 
     }
 
     void sendMacro(int i, int j){
         //For now just change the text
-        //Later call the send method from the object at i, j
-        result.setText(i + " , " + j );
+        //Later call the send method on the object at i, j
+        result.setText(gridObject.getMacroAtPos(i,j).getCommand());
     }
 }

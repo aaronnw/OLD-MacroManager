@@ -48,8 +48,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/lvGridList"
-            android:listSelector="@color/colorAccent"/>
+            android:listSelector="@color/colorAccent"
+            android:choiceMode="singleChoice"/>
     </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:id="@+id/tvTest"
+        android:layout_above="@+id/bNewGrid"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
 
 </RelativeLayout>

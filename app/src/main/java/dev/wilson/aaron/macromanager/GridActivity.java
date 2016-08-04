@@ -13,10 +13,11 @@ import android.widget.TextView;
 import java.net.Socket;
 
 public class GridActivity extends AppCompatActivity{
-    int rows = 5;
-    int columns = 4;
-    TextView result;
-    GridObject gridObject;
+    private String title = "test";
+    private int rows = 5;
+    private int columns = 4;
+    private TextView result;
+    private GridObject gridObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -26,7 +27,7 @@ public class GridActivity extends AppCompatActivity{
         grid.setRowCount(rows +1);
         grid.setColumnCount(columns);
 
-        gridObject = new GridObject(rows, columns);
+        gridObject = new GridObject(title, rows, columns);
 
         gridObject.addMacro("title", "Test command");
 

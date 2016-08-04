@@ -30,8 +30,8 @@ public class GridManager extends AppCompatActivity{
         });
         bNewGrid.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent newGridIntent = new Intent(GridManager.this, LinearGridActivity.class);
-                startActivity(newGridIntent);
+                Intent createGridIntent = new Intent(GridManager.this, GridCreator.class);
+                startActivity(createGridIntent);
             }
         });
         bEditGrid.setOnClickListener(new View.OnClickListener(){

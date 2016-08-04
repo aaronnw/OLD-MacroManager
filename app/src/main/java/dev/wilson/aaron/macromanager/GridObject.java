@@ -4,11 +4,13 @@ package dev.wilson.aaron.macromanager;
  * Created by Aaron.Wilson on 8/2/2016.
  */
 public class GridObject{
-    MacroObject[][] macros;
+    private MacroObject[][] macros;
+    private String title;
     int rowSize;
     int columnSize;
 
-    public GridObject(int rowSize, int columnSize){
+    public GridObject(String title, int rowSize, int columnSize){
+        this.title = title;
         this.rowSize = rowSize;
         this.columnSize = columnSize;
         macros = new MacroObject[rowSize][columnSize];
@@ -35,5 +37,8 @@ public class GridObject{
     }
     public MacroObject getMacroAtPos(int xPos, int yPos){
         return macros[xPos][yPos];
+    }
+    public String getTitle(){
+        return title;
     }
 }

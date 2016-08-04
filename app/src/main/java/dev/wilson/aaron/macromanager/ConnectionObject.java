@@ -1,12 +1,14 @@
 package dev.wilson.aaron.macromanager;
 
+import android.os.AsyncTask;
+
 import java.io.IOException;
 import java.net.Socket;
 
 /**
  * Created by Aaron.Wilson on 8/3/2016.
  */
-public class ConnectionObject{
+public class ConnectionObject extends AsyncTask<Void,Void,Void>{
     private String server;
     //Use a port between 1024-49151
     private int port;
@@ -16,28 +18,33 @@ public class ConnectionObject{
         server = null;
         port = 0;
     }
+
+    @Override
+    protected Void doInBackground(Void... voids){
+        start();
+        return null;
+    }
+
     public ConnectionObject(String server, int port){
         this.server = server;
         this.port = port;
     }
 
-    public int start(){
+    public void start(){
         //scan for an empty port
-        int result = 0;
         try{
             client = new Socket(server, port);
-            if(client.isConnected()){
-                result = 1;
-            }
         }catch(IOException e){
-            result = 0;
         }
-        return result;
     }
 
     boolean checkConnection(){
-        if(client.isConnected()){
-            return true;
+        if(client != null){
+            if(client.isConnected()){
+                return true;
+            }else{
+                return false;
+            }
         }else{
             return false;
         }

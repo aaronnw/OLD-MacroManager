@@ -8,30 +8,36 @@ import android.widget.Button;
 
 public class GridManager extends AppCompatActivity{
 
-    Button bGridlayout;
-    Button bNewLayout;
+    Button bOpenGrid;
+    Button bNewGrid;
     Button bEditGrid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_manager);
-        bGridlayout = (Button) findViewById(R.id.bTestOption1);
-        bNewLayout = (Button) findViewById(R.id.bTestOption2);
+        bOpenGrid = (Button) findViewById(R.id.bOpenGrid);
+        bNewGrid = (Button) findViewById(R.id.bNewGrid);
         bEditGrid = (Button) findViewById(R.id.bEditGrid);
         setListeners();
     }
     void setListeners(){
-        bGridlayout.setOnClickListener(new View.OnClickListener(){
+        bOpenGrid.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent gridIntent = new Intent(GridManager.this, GridActivity.class);
-                startActivity(gridIntent);
+                Intent openGridIntent = new Intent(GridManager.this, GridActivity.class);
+                startActivity(openGridIntent);
             }
         });
-        bNewLayout.setOnClickListener(new View.OnClickListener(){
+        bNewGrid.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent linearGridIntent = new Intent(GridManager.this, LinearGridActivity.class);
-                startActivity(linearGridIntent);
+                Intent newGridIntent = new Intent(GridManager.this, LinearGridActivity.class);
+                startActivity(newGridIntent);
+            }
+        });
+        bEditGrid.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent editGridIntent = new Intent(GridManager.this, GridEditor.class);
+                startActivity(editGridIntent);
             }
         });
 

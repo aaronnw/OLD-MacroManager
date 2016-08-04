@@ -25,8 +25,6 @@
         </activity>
         <activity android:name=".EditMacroActivity">
         </activity>
-        <activity android:name=".GridEditSelector">
-        </activity>
         <activity android:name=".GridEditor">
         </activity>
     </application>

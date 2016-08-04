@@ -9,31 +9,47 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="dev.wilson.aaron.macromanager.GridManager">
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Grid Layout"
-        android:id="@+id/bTestOption1"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="106dp"/>
-
+        android:text="Open"
+        android:id="@+id/bOpenGrid"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Layout"
-        android:id="@+id/bTestOption2"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/bTestOption1"
-        android:layout_alignStart="@+id/bTestOption1"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Grid"
+        android:text="Edit"
         android:id="@+id/bEditGrid"
-        android:layout_marginTop="70dp"
-        android:layout_below="@+id/bTestOption2"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/bOpenGrid"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New"
+        android:id="@+id/bNewGrid"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/bEditGrid"/>
+
+
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/svGridListScroll"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lvGridList"
+            android:listSelector="@color/colorAccent"/>
+    </ScrollView>
+
+
 </RelativeLayout>

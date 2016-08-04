@@ -25,7 +25,6 @@ public class MainMenu extends AppCompatActivity {
         tvStatus = (TextView) findViewById(R.id.tvStatus);
         bConnect = (Button) findViewById(R.id.bConnect);
         bGrid = (Button) findViewById(R.id.bGrid);
-        connection = new ConnectionObject("localhost", 1234);
         setListeners();
 
     }
@@ -44,7 +43,8 @@ public class MainMenu extends AppCompatActivity {
     void setListeners(){
         bConnect.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                connection.start();
+                connection = new ConnectionObject("localhost", 1234);
+                connection.execute();
                 updateStatus();
             }
         });

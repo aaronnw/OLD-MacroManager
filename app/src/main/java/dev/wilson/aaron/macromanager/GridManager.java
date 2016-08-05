@@ -8,11 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
@@ -27,10 +25,10 @@ public class GridManager extends AppCompatActivity{
     private FileInputStream fis;
     private ObjectInputStream ois;
     private GridObject example;
-    ArrayList<GridObject> gridList;
-    ArrayList<String> listItems;
-    ArrayAdapter<String> adapter;
-    File file;
+    private ArrayList<GridObject> gridList;
+    private ArrayList<String> listItems;
+    private ArrayAdapter<String> adapter;
+    private File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

@@ -8,9 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.net.Socket;
-import java.sql.Connection;
-
 public class MainMenu extends AppCompatActivity {
     private static boolean status = false;
     private TextView tvStatus;

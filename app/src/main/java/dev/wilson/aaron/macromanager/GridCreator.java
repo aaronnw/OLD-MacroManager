@@ -1,6 +1,5 @@
 package dev.wilson.aaron.macromanager;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -13,7 +12,6 @@ import android.widget.NumberPicker;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -21,21 +19,20 @@ import java.util.ArrayList;
 
 public class GridCreator extends AppCompatActivity{
 
-    NumberPicker rowPicker;
-    NumberPicker columnPicker;
-    EditText titleField;
-    Button gridCreate;
-    String title = null;
-    int rowNum = 0;
-    int columnNum = 0;
-    ArrayList<GridObject> gridList;
-    FileInputStream fis;
-    ObjectInputStream ois;
-
-    String filename = "savedGrid";
-    File file;
-    FileOutputStream fos=null;
-    ObjectOutputStream oos=null;
+    private NumberPicker rowPicker;
+    private NumberPicker columnPicker;
+    private EditText titleField;
+    private Button gridCreate;
+    private String title = null;
+    private int rowNum = 0;
+    private int columnNum = 0;
+    private ArrayList<GridObject> gridList;
+    private FileInputStream fis;
+    private ObjectInputStream ois;
+    private String filename = "savedGrid";
+    private  File file;
+    private FileOutputStream fos=null;
+    private ObjectOutputStream oos=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -63,7 +60,6 @@ public class GridCreator extends AppCompatActivity{
 
     }
     public void createGrid(){
-        //TODO add validation
         title = titleField.getText().toString();
         rowNum = rowPicker.getValue();
         columnNum = columnPicker.getValue();

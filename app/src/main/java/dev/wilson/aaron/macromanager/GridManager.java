@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -26,8 +27,9 @@ public class GridManager extends AppCompatActivity{
     private FileInputStream fis;
     private ObjectInputStream ois;
     private GridObject example;
+    ArrayList<GridObject> gridList;
     ArrayList<String> listItems;
-    TextView test;
+    ArrayAdapter<String> adapter;
     File file;
 
     @Override
@@ -40,7 +42,8 @@ public class GridManager extends AppCompatActivity{
         scroll = (ScrollView) findViewById(R.id.svGridListScroll);
         list = (ListView) findViewById(R.id.lvGridList);
         listItems = new ArrayList<String>();
-        test = (TextView) findViewById(R.id.tvTest);
+        adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
+        list.setAdapter(adapter);
         setListeners();
         loadContent();
     }
@@ -70,11 +73,13 @@ public class GridManager extends AppCompatActivity{
             file = new File(this.getFilesDir(), filename);
             fis = new FileInputStream(file);
             ois = new ObjectInputStream(fis);
-            GridObject example = (GridObject) ois.readObject();
-            test.setText(example.getTitle());
-
+            gridList = (ArrayList<GridObject>) ois.readObject();
+            for(GridObject grid:gridList){
+                adapter.add(grid.getTitle());
+            }
+            fis.close();
+            ois.close();
         }catch(Exception e){
-            test.setText(e.toString());
             e.printStackTrace();
         }
     }

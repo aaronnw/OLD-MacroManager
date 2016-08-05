@@ -38,28 +38,26 @@
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/svGridListScroll"
         android:layout_alignParentTop="true"
+        android:layout_above="@+id/bOpenGrid"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/lvGridList"
-            android:listSelector="@color/colorAccent"
-            android:choiceMode="singleChoice"/>
     </ScrollView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test"
-        android:id="@+id/tvTest"
-        android:layout_above="@+id/bNewGrid"
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lvGridList"
+        android:listSelector="@color/colorAccent"
+        android:choiceMode="singleChoice"
+
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/bOpenGrid"/>
 
 
 </RelativeLayout>

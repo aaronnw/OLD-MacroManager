@@ -10,7 +10,6 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.net.Socket;
 
 public class GridActivity extends AppCompatActivity{
     private String title = "test";
